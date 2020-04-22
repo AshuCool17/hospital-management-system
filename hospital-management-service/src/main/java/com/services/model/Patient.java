@@ -28,6 +28,7 @@ import lombok.ToString;
 public class Patient {
 
 	@Id
+	@Column(name = "patient_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
@@ -43,9 +44,9 @@ public class Patient {
 	private Gender gender;
 	
 	@Column(name = "mobile_no")
-	private int mobileNumber;
+	private long mobileNumber;
 	
-	@Column(name = "emaid_address")
+	@Column(name = "email_address")
 	private String emailId;
 	
 	private String symptoms;
