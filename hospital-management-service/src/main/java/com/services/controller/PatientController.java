@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ import com.services.model.Patient;
 import com.services.service.PatientService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 
 /**
  * @author ashumaha
@@ -39,17 +41,16 @@ public class PatientController {
 
 	private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 	
-	/*
-	 * @SuppressWarnings("rawtypes")
-	 * 
-	 * @RequestMapping(path = "/addPatient", method = RequestMethod.POST, produces=
-	 * { "application/json" } ) public ResponseEntity
-	 * addPatient(@ApiParam("description") @RequestBody Patient patient) {
-	 * 
-	 * logger.info("Adding patient information"); Patient patientInfo =
-	 * patientService.addPatient(patient); Gson gson = new Gson(); return new
-	 * ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.OK); }
-	 */
+	@SuppressWarnings("rawtypes")
+	@RequestMapping(path = "/addPatient", method = RequestMethod.POST, produces={ "application/json" } )
+	public ResponseEntity addPatient(@ApiParam("description") @RequestBody Patient patient) {
+	  
+		logger.info("Adding patient information");
+		Patient patientInfo = patientService.addPatient(patient);
+		Gson gson = new Gson();
+		return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.OK);
+	}
+	 
 	
 	@SuppressWarnings("rawtypes")
 	@Transactional(readOnly = true)
