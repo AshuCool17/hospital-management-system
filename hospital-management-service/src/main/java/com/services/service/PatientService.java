@@ -27,10 +27,22 @@ public class PatientService {
 	}*/
 	
 	@Transactional(readOnly = true)
-	public List<Patient> viewAllPatients() {
+	public List<Patient> findAllPatients() {
 		List<Patient> patientList = new ArrayList<>();
 		patientRepository.findAll().forEach(patient -> patientList.add(patient)); //Retrieve all patients and iterate to insert into a list
 		return patientList;
+	}
+
+	public Patient findPatientById(long patientId) {
+		Patient patient = null;
+		if(patientRepository.findById(patientId).isPresent()) {
+			patient = patientRepository.findById(patientId).get();
+		}
+		return patient;
+	}
+
+	public void deletePatientById(long patientId) {
+		patientRepository.deleteById(patientId);
 	}
 	
 }
