@@ -1,6 +1,7 @@
 package com.services.service;
 
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,19 @@ public class PatientService {
 
 	@Transactional
 	public Patient addPatient(Patient patient) {
-		return patientRepository.save(patient);
+		return patientRepository.save(patient); //Insert the patient record into database using save() in CrudRepository
 	}	 
 
+	/*@Transactional(readOnly = true)
 	public Stream<Patient> viewAllPatients() {
-		return patientRepository.findAllPatients();
+		return patientRepository.findAllPatients(); //Retrieve all patients through stream using JPA query 
+	}*/
+	
+	@Transactional(readOnly = true)
+	public List<Patient> viewAllPatients() {
+		List<Patient> patientList = new ArrayList<>();
+		patientRepository.findAll().forEach(patient -> patientList.add(patient)); //Retrieve all patients and iterate to insert into a list
+		return patientList;
 	}
 	
 }
