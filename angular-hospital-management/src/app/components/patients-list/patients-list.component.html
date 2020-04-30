@@ -1,0 +1,19 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Symptoms</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td >
+            <img src="http://placeholder.it/20x30" />
+        </td>
+        <td>{{patient.id}}</td>
+        <td>{{patient.firstName}}</td>
+        <td>{{patient.symptoms}}</td>
+      </tr>
+    </tbody>
+  </table>

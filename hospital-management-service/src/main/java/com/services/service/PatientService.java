@@ -32,7 +32,8 @@ public class PatientService {
 		patientRepository.findAll().forEach(patient -> patientList.add(patient)); //Retrieve all patients and iterate to insert into a list
 		return patientList;
 	}
-
+	
+	@Transactional(readOnly = true)
 	public Patient findPatientById(long patientId) {
 		Patient patient = null;
 		if(patientRepository.findById(patientId).isPresent()) {
