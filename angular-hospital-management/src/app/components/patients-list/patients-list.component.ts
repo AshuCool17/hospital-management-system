@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientService } from 'src/app/services/patient.service';
 import { Patient } from 'src/app/hospitalmgnt/patient';
 
 @Component({
@@ -8,41 +9,17 @@ import { Patient } from 'src/app/hospitalmgnt/patient';
 })
 export class PatientsListComponent implements OnInit {
 
-  patients : Patient[] = [
-    {
-      "id": 1,
-      "firstName": "Suman",
-      "lastName": "Trivedi",
-      "age": 34,
-      "gender": "Female",
-      "mobileNumber": 9876543130,
-      "emailId": "sumant@gmail.com",
-      "symptoms": "Respiratory problem"
-  },
-  {
-    "id": 2,
-    "firstName": "Suman",
-    "lastName": "Trivedi",
-    "age": 34,
-    "gender": "Female",
-    "mobileNumber": 9876543130,
-    "emailId": "sumant@gmail.com",
-    "symptoms": "Respiratory problem"
-},
-{
-  "id": 3,
-  "firstName": "Suman",
-  "lastName": "Trivedi",
-  "age": 34,
-  "gender": "Female",
-  "mobileNumber": 9876543130,
-  "emailId": "sumant@gmail.com",
-  "symptoms": "Respiratory problem"
-}
-  ]
-  constructor() { }
-
-  ngOnInit(): void {
+  patients : Patient[];
+  constructor(private patientService : PatientService) { 
   }
 
+  ngOnInit() {
+    this.listOfPatients();
+  }
+
+  listOfPatients(){
+    this.patientService.findAllPatients().subscribe(
+      data => this.patients = data
+    )
+  }
 }
