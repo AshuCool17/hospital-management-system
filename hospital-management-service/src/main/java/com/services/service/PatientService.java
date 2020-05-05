@@ -18,7 +18,7 @@ public class PatientService {
 
 	@Transactional
 	public Patient addPatient(Patient patient) {
-		return patientRepository.save(patient); //Insert the patient record into database using save() in CrudRepository
+		return patientRepository.save(patient); //Insert the patient record into database using save() present in CrudRepository
 	}	 
 
 	/*@Transactional(readOnly = true)
@@ -29,21 +29,23 @@ public class PatientService {
 	@Transactional(readOnly = true)
 	public List<Patient> findAllPatients() {
 		List<Patient> patientList = new ArrayList<>();
-		patientRepository.findAll().forEach(patient -> patientList.add(patient)); //Retrieve all patients and iterate to insert into a list
+		patientRepository.findAll().forEach(patient -> patientList.add(patient)); //Retrieve all patients and iterate to insert into a list using findAll() in CrudRepository
 		return patientList;
 	}
 	
 	@Transactional(readOnly = true)
 	public Patient findPatientById(long patientId) {
 		Patient patient = null;
-		if(patientRepository.findById(patientId).isPresent()) {
-			patient = patientRepository.findById(patientId).get();
+		if(patientRepository.findById(patientId).isPresent()) { //check if the patientId exists in the DB
+			patient = patientRepository.findById(patientId).get(); //Retrieve patient by patientId using findById() in CrudRepository
 		}
 		return patient;
 	}
 
 	public void deletePatientById(long patientId) {
-		patientRepository.deleteById(patientId);
+		if(patientRepository.findById(patientId).isPresent()) { //check if the patientId exists in the DB
+			patientRepository.deleteById(patientId); //Delete the patient record by patientId using deleteById() in CrudRepository
+		}
 	}
 	
 }
