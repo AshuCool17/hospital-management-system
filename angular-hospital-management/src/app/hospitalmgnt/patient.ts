@@ -7,5 +7,5 @@ export class Patient {
     mobileNumber : number;
     emailId : string;
     symptoms : string;
-
+    imageUrl : string;
 }

@@ -4,6 +4,7 @@
 package com.services.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,6 +48,12 @@ public class Patient implements Serializable{
 	private String emailId;
 	
 	private String symptoms;
+	
+	@Column(name = "image_url")
+	private String imageUrl;
+	
+	@Column(name = "admission_date")
+	private Date admissionDate;
 
 	/**
 	 * @return the id
@@ -165,6 +172,34 @@ public class Patient implements Serializable{
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	/**
+	 * @return the imageUrl
+	 */
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	/**
+	 * @param imageUrl the imageUrl to set
+	 */
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	/**
+	 * @return the admissionDate
+	 */
+	public Date getAdmissionDate() {
+		return admissionDate;
+	}
+
+	/**
+	 * @param admissionDate the admissionDate to set
+	 */
+	public void setAdmissionDate(Date admissionDate) {
+		this.admissionDate = admissionDate;
 	}
 	
 }

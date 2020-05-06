@@ -10,7 +10,7 @@
     <tbody>
       <tr *ngFor="let patient of patients">
         <td >
-          <img src="http://placeholder.it/20x30" />
+          <img [src] = "patient.imageUrl" height = "50" />
         </td>
         <td>{{patient.firstName}}</td>
         <td>{{patient.lastName}}</td>
