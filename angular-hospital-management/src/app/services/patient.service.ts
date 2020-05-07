@@ -9,7 +9,7 @@ import { Patient } from '../hospitalmgnt/patient';
 })
 export class PatientService {
 
-  private baseUrl = "http://localhost:8090/findAllPatients";
+  private baseUrl = "http://localhost:8090/findAllPatients?size=100";
   
   constructor(private httpClient : HttpClient) { }
 
