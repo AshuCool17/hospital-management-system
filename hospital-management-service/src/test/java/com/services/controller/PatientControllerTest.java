@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,13 +76,15 @@ public class PatientControllerTest extends AbstractControllerTest{
 		String patientJson = this.mapToJson(patient);
 		long patientId = 1;
 		
+		Mockito.when(patientService.findPatientById(anyLong())).thenReturn(patient);
+		
 		// Make request and verify it was successful
 		mvc.perform(MockMvcRequestBuilders.delete("/deletePatientById/{patientId}", patientId)
 										.accept(MediaType.APPLICATION_JSON)
 										.contentType(MediaType.APPLICATION_JSON).content(patientJson))
 										.andExpect(status().isNoContent()).andReturn();
 		
-		Mockito.verify(patientService, Mockito.times(1)).deletePatientById(any());
+		Mockito.verify(patientService, Mockito.times(1)).deletePatientById(anyLong());
 	}
 	
 	@Test
