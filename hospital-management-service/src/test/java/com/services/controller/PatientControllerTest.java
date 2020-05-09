@@ -7,6 +7,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.any;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,40 @@ public class PatientControllerTest extends AbstractControllerTest{
 	}
 	
 	@Test
-	public void testGetAllPatients() throws Exception {
+	public void testAddPatient() throws Exception {
+		
+		Patient patient = preparePatientData();
+		String patientJson = this.mapToJson(patient);
+		
+		Mockito.when(patientService.addPatient(any())).thenReturn(patient);
+		
+		// Make request and verify it was successful
+		mvc.perform(MockMvcRequestBuilders.post("/addPatient")
+									.accept(MediaType.APPLICATION_JSON)
+									.contentType(MediaType.APPLICATION_JSON).content(patientJson))
+									.andExpect(status().isCreated()).andReturn();
+		
+		Mockito.verify(patientService, Mockito.times(1)).addPatient(any());
+	}
+	
+	@Test
+	public void testDeletePatient() throws Exception {
+		
+		Patient patient = preparePatientData();
+		String patientJson = this.mapToJson(patient);
+		long patientId = 1;
+		
+		// Make request and verify it was successful
+		mvc.perform(MockMvcRequestBuilders.delete("/deletePatientById/{patientId}", patientId)
+										.accept(MediaType.APPLICATION_JSON)
+										.contentType(MediaType.APPLICATION_JSON).content(patientJson))
+										.andExpect(status().isNoContent()).andReturn();
+		
+		Mockito.verify(patientService, Mockito.times(1)).deletePatientById(any());
+	}
+	
+	@Test
+	public void testFindAllPatients() throws Exception {
 		List<Patient> patientList = new ArrayList<>();
 		Patient patient = preparePatientData();
 		patientList.add(patient);
@@ -72,6 +106,28 @@ public class PatientControllerTest extends AbstractControllerTest{
 			responsePatientList.add(responsePatient);
 		}
 		assertThat(responsePatients.length, is(2));
+		assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
+		
+	}
+	
+	@Test
+	public void testFindPatientById() throws Exception {
+		
+		long patientId = 1;
+		Patient patient = preparePatientData();
+		
+		Mockito.when(patientService.findPatientById(patientId)).thenReturn(patient);
+		
+		// Make request and verify it was successful
+		MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/findPatientById/{patientId}", patientId)
+									.accept(MediaType.APPLICATION_JSON))
+									.andExpect(status().isOk()).andReturn();
+				
+		Patient responsePatient = mapFromJson(result.getResponse().getContentAsString(), Patient.class);
+		
+		assertThat(responsePatient.getFirstName(), is("Ashutosh"));
+		assertThat(responsePatient.getLastName(), is("Mahato"));
+		assertThat(responsePatient.getAge(), is(30));
 		assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
 		
 	}
