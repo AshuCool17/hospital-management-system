@@ -86,24 +86,6 @@ public class PatientControllerTest extends AbstractControllerTest{
 	}
 	
 	@Test
-	public void testDeletePatientForInvalidId() throws Exception {
-		
-		Patient patient = preparePatientData();  // creating a mock object
-		String patientJson = this.mapToJson(patient);
-		long patientId = 1L;
-		
-		Mockito.when(patientService.findPatientById(anyLong())).thenReturn(null); //surpasses the findPatientId and feeds in the mocked patient object
-		
-		// Make request and verify it was successful
-		mvc.perform(MockMvcRequestBuilders.delete("/deletePatientById/{patientId}", patientId)
-										.accept(MediaType.APPLICATION_JSON)
-										.contentType(MediaType.APPLICATION_JSON))
-										.andExpect(status().isNotFound()).andReturn(); //verifying 204 status as response
-		
-		Mockito.verify(patientService, Mockito.times(1)).deletePatientById(anyLong()); //verifying the service method executed once and retrieved back the result
-	}
-	
-	@Test
 	public void testFindAllPatients() throws Exception {
 		List<Patient> patientList = new ArrayList<>();
 		Patient patient = preparePatientData();  // creating a mock object

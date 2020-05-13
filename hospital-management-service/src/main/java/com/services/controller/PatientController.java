@@ -60,7 +60,7 @@ public class PatientController {
 			patientService.deletePatientById(patientInfo.getId());
 			return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.NO_CONTENT); //Return the patient information as a json response with the response code
 		}
-		return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.NOT_FOUND); //Return the patient information as a json response with the response code
+		return new ResponseEntity<>(gson.toJson("Patient not found"), HttpStatus.NOT_FOUND); //Return the patient information as a json response with the response code
 	}
 	
 	@SuppressWarnings({ "rawtypes" })
