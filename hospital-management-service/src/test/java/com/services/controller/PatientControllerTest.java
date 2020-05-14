@@ -94,7 +94,7 @@ public class PatientControllerTest extends AbstractControllerTest{
 		patient = preparePatientData();  // creating a mock object
 		patientList.add(patient); // add to the patientList
 		
-		Mockito.when(patientService.findAllPatients()).thenReturn(patientList);
+		Mockito.when(patientService.findAllPatients()).thenReturn(patientList); //surpasses the findPatientId and feeds in the mocked patient object
 		
 		// Make request and verify it was successful
 		MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/findAllPatients")
@@ -116,7 +116,7 @@ public class PatientControllerTest extends AbstractControllerTest{
 		long patientId = 1;
 		Patient patient = preparePatientData();
 		
-		Mockito.when(patientService.findPatientById(patientId)).thenReturn(patient);
+		Mockito.when(patientService.findPatientById(patientId)).thenReturn(patient); //surpasses the findPatientId and feeds in the mocked patient object
 		
 		// Make request and verify it was successful
 		MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/findPatientById/{patientId}", patientId)
