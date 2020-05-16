@@ -201,5 +201,12 @@ public class Patient implements Serializable{
 	public void setAdmissionDate(Date admissionDate) {
 		this.admissionDate = admissionDate;
 	}
+
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
+				+ ", gender=" + gender + ", mobileNumber=" + mobileNumber + ", emailId=" + emailId + ", symptoms="
+				+ symptoms + ", imageUrl=" + imageUrl + ", admissionDate=" + admissionDate + "]";
+	}
 	
 }
