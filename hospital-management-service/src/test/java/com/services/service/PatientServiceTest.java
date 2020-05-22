@@ -3,24 +3,34 @@
  */
 package com.services.service;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.services.model.Gender;
+import com.services.model.Patient;
+import com.services.repository.PatientRepository;
+
 /**
  * @author ashumaha
  *
  */
+
+@RunWith(MockitoJUnitRunner.class)
 public class PatientServiceTest {
 
 	@InjectMocks
-	@Spy
-    private RoleService roleService;
+    private PatientService patientService;
 	
 	@Mock
-	private UserPasswordService userPasswordService; 
-	
-	@Mock
-    private Validator validator;
-	
-	@Mock 
-	private EnvironmentUtils mockEnvironmentUtils;
+	PatientRepository patientRepository;
 	
 	@Before
 	public void initMocks(){
@@ -28,10 +38,22 @@ public class PatientServiceTest {
 	}
 	
 	@Test
-	public void testAddPatient() throws GlobalException {
-		List<String> resetRole = new ArrayList<String>();
-		resetRole.add(Constants.UNVERIFIED_ROLE);
-		assertThat(roleService.verifyRoles(basicAuth, IP, resetRole, Permission.PASSWORD_UPDATE), is(true));
+	public void testAddPatient() {
+		
+		Patient patient = new Patient();
+		patient.setFirstName("Ashutosh");
+		patient.setLastName("Mahato");
+		patient.setAge(30);
+		patient.setEmailId("ashutosh.mahato@gmail.com");
+		patient.setGender(Gender.Male);
+		patient.setMobileNumber(9590293525L);
+		patient.setImageUrl("001.jpg");
+		patient.setSymptoms("fever");
+		
+		patientService.addPatient(patient);
+		
+		verify(patientRepository, times(1)).save(patient);
+		
 	}
 	
 }
