@@ -5,6 +5,11 @@ package com.services.service;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,20 +45,42 @@ public class PatientServiceTest {
 	@Test
 	public void testAddPatient() {
 		
+		Patient patient = preparePatientData();
+		patientService.addPatient(patient);
+		verify(patientRepository, times(1)).save(patient);
+		
+	}
+	
+	@Test
+	public void testFindAllPatients() {
+		
+		List<Patient> patientList = new ArrayList<>();
+		Patient patient = preparePatientData();  // creating a mock object
+		patientList.add(patient); // add to the patientList
+		
+		patient = preparePatientData();  // creating a mock object
+		patientList.add(patient); // add to the patientList
+		
+		when(patientService.findAllPatients()).thenReturn(patientList);
+		
+		List<Patient> patients = patientService.findAllPatients();
+		assertEquals(2, patients.size());
+		verify(patientRepository, times(1)).findAll();
+		
+	}
+	
+	private Patient preparePatientData() {
 		Patient patient = new Patient();
 		patient.setFirstName("Ashutosh");
 		patient.setLastName("Mahato");
 		patient.setAge(30);
 		patient.setEmailId("ashutosh.mahato@gmail.com");
+		//patient.setAdmissionDate(new Date(61202516585000L));
 		patient.setGender(Gender.Male);
 		patient.setMobileNumber(9590293525L);
 		patient.setImageUrl("001.jpg");
 		patient.setSymptoms("fever");
-		
-		patientService.addPatient(patient);
-		
-		verify(patientRepository, times(1)).save(patient);
-		
+		return patient;
 	}
 	
 }
