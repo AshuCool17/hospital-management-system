@@ -69,6 +69,26 @@ public class PatientServiceTest {
 		
 	}
 	
+	@Test
+	public void testFindPatientById() {
+		
+		long patientId = 1L;
+		Patient patient = preparePatientData();  // creating a mock object
+		
+		when(patientService.findPatientById(patientId)).thenReturn(patient);
+		
+		Patient responsePatient = patientService.findPatientById(patientId);
+		assertEquals("Ashutosh", responsePatient.getFirstName());
+		assertEquals("Mahato", responsePatient.getLastName());
+		assertEquals(30, responsePatient.getAge());
+		assertEquals("ashutosh.mahato@gmail.com", responsePatient.getEmailId());
+		assertEquals("Male", responsePatient.getGender().toString());
+		assertEquals(9590293525L, responsePatient.getMobileNumber());
+		assertEquals("001.jpg", responsePatient.getImageUrl());
+		assertEquals("fever", responsePatient.getSymptoms());
+		
+	}
+	
 	private Patient preparePatientData() {
 		Patient patient = new Patient();
 		patient.setFirstName("Ashutosh");
