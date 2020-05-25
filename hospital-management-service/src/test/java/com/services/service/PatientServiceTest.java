@@ -3,10 +3,11 @@
  */
 package com.services.service;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.services.model.Gender;
@@ -32,6 +34,7 @@ import com.services.repository.PatientRepository;
 public class PatientServiceTest {
 
 	@InjectMocks
+	@Spy
     private PatientService patientService;
 	
 	@Mock
@@ -75,7 +78,7 @@ public class PatientServiceTest {
 		long patientId = 1L;
 		Patient patient = preparePatientData();  // creating a mock object
 		
-		when(patientService.findPatientById(patientId)).thenReturn(patient);
+		doReturn(patient).when(patientService).findPatientById(patientId);
 		
 		Patient responsePatient = patientService.findPatientById(patientId);
 		assertEquals("Ashutosh", responsePatient.getFirstName());
