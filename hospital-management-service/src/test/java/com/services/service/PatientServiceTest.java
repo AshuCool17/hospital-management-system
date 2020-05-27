@@ -94,14 +94,10 @@ public class PatientServiceTest {
 	
 	@Test
 	public void testDeletePatientById() {
-		long patientId = 1L;
-		Patient patient = preparePatientData();
-		patient.setId(patientId);
-		//when(patientRepository.findById(patientId).isPresent()).thenReturn(true);
-		//doReturn(true).when(patientService).deletePatientById(patientId);
-		patientService.deletePatientById(patientId);
 		
-		verify(patientRepository, times(1)).deleteById(patientId);
+		long patientId = 1L;
+		patientService.deletePatientById(patientId);
+		verify(patientService, times(1)).deletePatientById(patientId);
 	}
 	
 	private Patient preparePatientData() {
