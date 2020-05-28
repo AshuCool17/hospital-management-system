@@ -48,9 +48,9 @@ public class PatientServiceTest {
 	@Test
 	public void testAddPatient() {
 		
-		Patient patient = preparePatientData();
-		patientService.addPatient(patient);
-		verify(patientRepository, times(1)).save(patient);
+		Patient patient = preparePatientData(); // creating a mock object
+		patientService.addPatient(patient); // invoking mock service
+		verify(patientRepository, times(1)).save(patient); //verifying the service is invoked once
 		
 	}
 	
@@ -58,17 +58,17 @@ public class PatientServiceTest {
 	public void testFindAllPatients() {
 		
 		List<Patient> patientList = new ArrayList<>();
-		Patient patient = preparePatientData();  // creating a mock object
+		Patient patient = preparePatientData(); // creating a mock object
 		patientList.add(patient); // add to the patientList
 		
 		patient = preparePatientData();  // creating a mock object
 		patientList.add(patient); // add to the patientList
 		
-		when(patientService.findAllPatients()).thenReturn(patientList);
+		when(patientService.findAllPatients()).thenReturn(patientList); //invoke mock service and return the mock object
 		
-		List<Patient> patients = patientService.findAllPatients();
-		assertEquals(2, patients.size());
-		verify(patientRepository, times(1)).findAll();
+		List<Patient> patients = patientService.findAllPatients(); //invoking mock service
+		assertEquals(2, patients.size()); //verifying size of list is 2
+		verify(patientRepository, times(1)).findAll(); //verifying the service is invoked once
 		
 	}
 	
@@ -78,9 +78,9 @@ public class PatientServiceTest {
 		long patientId = 1L;
 		Patient patient = preparePatientData();  // creating a mock object
 		
-		doReturn(patient).when(patientService).findPatientById(patientId);
+		doReturn(patient).when(patientService).findPatientById(patientId); //invoke mock service and return the mock object
 		
-		Patient responsePatient = patientService.findPatientById(patientId);
+		Patient responsePatient = patientService.findPatientById(patientId); //invoking mock service
 		assertEquals("Ashutosh", responsePatient.getFirstName());
 		assertEquals("Mahato", responsePatient.getLastName());
 		assertEquals(30, responsePatient.getAge());
@@ -96,8 +96,8 @@ public class PatientServiceTest {
 	public void testDeletePatientById() {
 		
 		long patientId = 1L;
-		patientService.deletePatientById(patientId);
-		verify(patientService, times(1)).deletePatientById(patientId);
+		patientService.deletePatientById(patientId); //invoking mock service
+		verify(patientService, times(1)).deletePatientById(patientId); //verifying the service is invoked once
 	}
 	
 	private Patient preparePatientData() {
