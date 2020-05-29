@@ -9,6 +9,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +107,7 @@ public class PatientServiceTest {
 		patient.setLastName("Mahato");
 		patient.setAge(30);
 		patient.setEmailId("ashutosh.mahato@gmail.com");
-		//patient.setAdmissionDate(new Date(61202516585000L));
+		patient.setAdmissionDate(new Date(61202516585000L));
 		patient.setGender(Gender.Male);
 		patient.setMobileNumber(9590293525L);
 		patient.setImageUrl("001.jpg");
