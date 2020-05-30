@@ -54,7 +54,7 @@ public class Patient implements Serializable{
 	
 	@Column(name = "admission_date")
 	private Date admissionDate;
-
+	
 	/**
 	 * @return the id
 	 */

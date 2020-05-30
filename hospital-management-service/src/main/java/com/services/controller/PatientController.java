@@ -3,6 +3,7 @@
  */
 package com.services.controller;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class PatientController {
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(path = "/addPatient", method = RequestMethod.POST, produces={ "application/json" } )
-	public ResponseEntity addPatient(@ApiParam("description") @RequestBody Patient patient) {
+	public ResponseEntity addPatient(@ApiParam("description") @RequestBody Patient patient ) throws IOException {
 	  
 		logger.info("Adding/Updating patient information");
 		Patient patientInfo = patientService.addPatient(patient); //Invoking the patientService to add/update patient information
@@ -90,4 +91,5 @@ public class PatientController {
 		Gson gson = new Gson();
 		return new ResponseEntity<>(gson.toJson(patientsList), HttpStatus.OK); //Return all the patient information as a json response with the response code
 	}
+
 }
