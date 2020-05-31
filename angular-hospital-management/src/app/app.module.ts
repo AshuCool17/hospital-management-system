@@ -8,17 +8,21 @@ import { AppComponent } from './app.component';
 import { PatientsListComponent } from './components/patients-list/patients-list.component';
 import { PatientService } from './services/patient.service';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: PatientsListComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent }
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientsListComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

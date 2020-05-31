@@ -7,6 +7,7 @@ import { Patient } from './hospitalmgnt/patient';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title: any;
   
   
 }
