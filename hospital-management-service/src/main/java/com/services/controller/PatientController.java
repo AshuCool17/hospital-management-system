@@ -58,7 +58,7 @@ public class PatientController {
 		Patient patientInfo = patientService.findPatientById(patientId); //Invoking the patientService to retrieve patient information and delete if it exists
 		Gson gson = new Gson();
 		if(null != patientInfo) {
-			patientService.deletePatientById(patientInfo.getId());
+			patientService.deletePatientById(patientInfo.getId()); //Invoking the patientService to find patient information
 			return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.NO_CONTENT); //Return the patient information as a json response with the response code
 		}
 		return new ResponseEntity<>(gson.toJson("Patient not found"), HttpStatus.NOT_FOUND); //Return the patient information as a json response with the response code
@@ -71,7 +71,7 @@ public class PatientController {
 		logger.info("Retrieving patient information");
 		Patient patientInfo = patientService.findPatientById(patientId); //Invoking the patientService to find patient information
 		Gson gson = new Gson();
-		if(null != patientInfo) {
+		if(null != patientInfo) { // patient record found
 			return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.OK); //Return the patient information as a json response with the response code
 		}
 		return new ResponseEntity<>(gson.toJson("Patient not found"), HttpStatus.NOT_FOUND); //Return as patient record not found as a json response with the response code
