@@ -61,7 +61,7 @@ public class PatientController {
 			patientService.deletePatientById(patientInfo.getId()); //Invoking the patientService to find patient information
 			return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.NO_CONTENT); //Return the patient information as a json response with the response code
 		}
-		return new ResponseEntity<>(gson.toJson("Patient not found"), HttpStatus.NOT_FOUND); //Return the patient information as a json response with the response code
+		return new ResponseEntity<>(gson.toJson("Patient record not found"), HttpStatus.NOT_FOUND); //Return the patient information as a json response with the response code
 	}
 	
 	@SuppressWarnings({ "rawtypes" })
@@ -74,7 +74,7 @@ public class PatientController {
 		if(null != patientInfo) { // patient record found
 			return new ResponseEntity<>(gson.toJson(patientInfo), HttpStatus.OK); //Return the patient information as a json response with the response code
 		}
-		return new ResponseEntity<>(gson.toJson("Patient not found"), HttpStatus.NOT_FOUND); //Return as patient record not found as a json response with the response code
+		return new ResponseEntity<>(gson.toJson("Patient record not found"), HttpStatus.NOT_FOUND); //Return as patient record not found as a json response with the response code
 	}
 	
 	@SuppressWarnings("rawtypes")
@@ -89,6 +89,9 @@ public class PatientController {
 		
 		patientsList = patientService.findAllPatients(); //Invoking the patientService to retrieve all patient information
 		Gson gson = new Gson();
+		if(patientsList.isEmpty()) {
+			return new ResponseEntity<>(gson.toJson("No patients record available"), HttpStatus.OK); //Return message as when there are no patient records available in the DB
+		}
 		return new ResponseEntity<>(gson.toJson(patientsList), HttpStatus.OK); //Return all the patient information as a json response with the response code
 	}
 
