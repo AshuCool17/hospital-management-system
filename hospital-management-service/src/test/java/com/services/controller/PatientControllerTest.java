@@ -137,16 +137,16 @@ public class PatientControllerTest extends AbstractControllerTest{
 	}
 
 	private Patient preparePatientData() {
-		Patient patient = new Patient();
-		patient.setFirstName("Ashutosh");
-		patient.setLastName("Mahato");
-		patient.setAge(30);
-		patient.setEmailId("ashutosh.mahato@gmail.com");
+		Patient mockPatient = new Patient();
+		mockPatient.setFirstName("Ashutosh");
+		mockPatient.setLastName("Mahato");
+		mockPatient.setAge(30);
+		mockPatient.setEmailId("ashutosh.mahato@gmail.com");
 		//patient.setAdmissionDate(new Date(61202516585000L));
-		patient.setGender(Gender.Male);
-		patient.setMobileNumber(9590293525L);
-		patient.setImageUrl("001.jpg");
-		patient.setSymptoms("fever");
-		return patient;
+		mockPatient.setGender(Gender.Male);
+		mockPatient.setMobileNumber(9590293525L);
+		mockPatient.setImageUrl("001.jpg");
+		mockPatient.setSymptoms("fever");
+		return mockPatient;
 	}
 }
