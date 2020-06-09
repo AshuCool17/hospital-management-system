@@ -131,8 +131,6 @@ public class PatientControllerTest extends AbstractControllerTest{
 		assertThat(responsePatient.getEmailId(), is("ashutosh.mahato@gmail.com"));
 		assertThat(responsePatient.getGender(), is(Gender.Male));
 		assertThat(responsePatient.getMobileNumber(), is(9590293525L));
-		assertThat(responsePatient.getImageUrl(), is("001.jpg"));
-		assertThat(responsePatient.getSymptoms(), is("fever")); 
 		
 	}
 
