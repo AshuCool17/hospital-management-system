@@ -129,8 +129,6 @@ public class PatientControllerTest extends AbstractControllerTest{
 		assertThat(responsePatient.getLastName(), is("Mahato")); //check if the response has the patient last name as "Mahato"
 		assertThat(responsePatient.getAge(), is(30)); //check if the response has the patient age as 30
 		assertThat(responsePatient.getEmailId(), is("ashutosh.mahato@gmail.com"));
-		assertThat(responsePatient.getGender(), is(Gender.Male));
-		assertThat(responsePatient.getMobileNumber(), is(9590293525L));
 		
 	}
 
