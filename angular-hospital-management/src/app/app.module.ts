@@ -9,11 +9,12 @@ import { PatientsListComponent } from './components/patients-list/patients-list.
 import { PatientService } from './services/patient.service';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component: PatientsListComponent },
+  { path: '', component: PatientsListComponent, canActivate:[AuthGuardService] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent }
+  { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService] }
 
 ];
 
