@@ -23,6 +23,9 @@
          height: 1080px;
          width: 1590px;
          }
+         .parent{
+                    display:flex;
+                }
       </style>
    </head>
    <body>
@@ -43,6 +46,7 @@
                         <div class="tab-content" id="tabcontent">
                            <div id="home" class="tab-pane fade">
                               <form action="#">
+                                <div>
                                  <div class="form-group">
                                     <input type="text" placeholder="Doctor-name" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="user">
                                  </div>
@@ -58,31 +62,48 @@
                                  <div><button type="submit" class="pull-right btn-link"><a href="https://www.google.com" style="color: white;" target="_blank">Forget password</a></button></div>
                                  <br /><br />
                                  <div><button type="submit" class="btn btn-default btn-lg" style="margin: 0; position: relative; top: 50%;left: 33%;-ms-transform: translateY(-50%, -50%); transform: translateY(-50%, -50%); width:40%;">Submit</button></div>
+                                </div>
                               </form>
-                              <br/>
-                              <a href="#" class="pull-right btn btn-block btn-danger" > Already Registered ?   </a>
+                            <br/>
+                            <a href="#" class="pull-right btn btn-block btn-danger"> Already Registered ?   </a>
                            </div>
                            <div id="menu" class="tab-pane fade">
                               <form action="#">
                                  <div class="form-group">
-                                    User Name : <input type="text" name="username" [(ngModel)]="username">
+                                    <!--User Name : <input type="text" name="username" [(ngModel)]="username"> -->
+                                  <input type="text" placeholder="First-name" style="opacity: 0.95; background:lightblue;-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" class="" id="firstname">
+                                  <input type="text" placeholder="Last-name" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" class="" id="lastname">
                                  </div>
                                  <div class="form-group">
-                                    <label for="email">Email address:</label>
-                                    <input type="email" class="form-control" id="email">
+                                  <input type="number" placeholder="Age" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="age">
                                  </div>
                                  <div class="form-group">
-                                    Password : <input type="password" name="password" [(ngModel)]="password">
+                                  <input type="text" placeholder="Gender" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="gender">
                                  </div>
                                  <div class="form-group">
-                                    <label for="pwd">Confirm Password:</label>
-                                    <input type="password" class="form-control" id="pwd">
+                                  <input type="number" placeholder="Mobile-number" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="number">
                                  </div>
-                                 <button class="btn btn-default" (click)=checkLogin()>Submit</button>
+                                 <div class="form-group">
+                                    <input type="email" placeholder="Email-address" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="email">
+                                 </div>
+                                 <div class="form-group">
+                                  <input type="text" placeholder="Symptoms" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="symptoms">
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" placeholder="Image" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="image">
+                                 </div>
+                                 <div class="form-group">
+                                  <input type="password" placeholder="Password" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="password">
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="password" placeholder="Confirm Password" style="opacity: 0.95; background:lightblue; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="confirmpassword">
+                                 </div>
                                  <button type="submit" class=" pull-right btn-link"><a href="https://www.google.com" style="color: white;" target="_blank">Forget password</a></button>
+                                 <br /><br />
+                                 <div><button type="submit" class="btn btn-default btn-lg" style="margin: 0; position: relative; top: 50%;left: 33%;-ms-transform: translateY(-50%, -50%); transform: translateY(-50%, -50%); width:40%;">Submit</button></div>
                               </form>
                               <br/>
-                              <a href="#" class="pull-right btn btn-block btn-success" > Already Registered ?   </a>
+                              <a href="#" class="pull-right btn btn-block btn-success"> Already Registered ?   </a>
                            </div>
                         </div>
                      </div>
