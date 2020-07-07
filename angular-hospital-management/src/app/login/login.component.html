@@ -32,6 +32,7 @@
          <div class="content">
             <div class="container" style="margin-top: 5%;">
                <div class="row">
+                  <div class="col-md-4"></div>
                   <div class="col-md-4" style="border-radius: 10px; border-color: lightseagreen;
                   background-color: lightskyblue; padding: 20px; opacity: 0.9;">
                      <h1 class="text-center" style="color:lavenderblush;">Register page</h1>
@@ -47,17 +48,38 @@
                               <form action="#">
                                 <div>
                                  <div class="form-group">
-                                    <input type="text" placeholder="Doctor-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="user">
+                                    <input type="text" placeholder="First-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" id="doctorfirstname">
+                                    <input type="text" placeholder="Last-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" id="doctorlastname">
                                  </div>
                                  <div class="form-group">
-                                    <input type="email" placeholder="Email-address" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="email">
-                                 </div>
-                                 <div class="form-group">
-                                    <input type="password" placeholder="Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="pwd1">
-                                 </div>
-                                 <div class="form-group">
-                                    <input type="password" placeholder="Confirm Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="pwd2">
-                                 </div>
+                                    <input type="number" placeholder="Age" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctorage">
+                                   </div>
+                                   <div class="form-group">
+                                      <p style="opacity: 0.95;  background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control">Gender
+                                      <input type="radio" id="doctormale" name="gender" value="male">
+                                      <label for="male">Male</label>
+                                      <input type="radio" id="doctorfemale" name="gender" value="female" >
+                                      <label for="female">Female</label><br>
+                                      </p>
+                                   </div>
+                                   <div class="form-group">
+                                    <input type="number" placeholder="Mobile-number" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctornumber">
+                                   </div>
+                                   <div class="form-group">
+                                      <input type="email" placeholder="Email-address" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctoremail">
+                                   </div>
+                                   <div class="form-group">
+                                    <input type="text" placeholder="Specialization" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctorspecialization">
+                                   </div>
+                                   <div class="form-group">
+                                      <input type="text" placeholder="Image" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctorimage">
+                                   </div>
+                                   <div class="form-group">
+                                    <input type="password" placeholder="Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctorpassword">
+                                   </div>
+                                   <div class="form-group">
+                                      <input type="password" placeholder="Confirm Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="doctorconfirmpassword">
+                                   </div>
                                  <div><button type="submit" class="btn btn-block btn-danger" >Submit</button></div>
                                  <br />
                                  <div><button type="submit" class="pull-right btn-link"><a href="https://www.google.com" style="color: white;" target="_blank">Forget password</a></button></div>
@@ -71,37 +93,37 @@
                               <form action="#">
                                  <div class="form-group">
                                     <!--User Name : <input type="text" name="username" [(ngModel)]="username"> -->
-                                  <input type="text" placeholder="First-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" id="firstname">
-                                  <input type="text" placeholder="Last-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" id="lastname">
+                                  <input type="text" placeholder="First-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" id="patientfirstname">
+                                  <input type="text" placeholder="Last-name" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 150px; height: 15px;" id="patientlastname">
                                  </div>
                                  <div class="form-group">
-                                  <input type="number" placeholder="Age" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="age">
+                                  <input type="number" placeholder="Age" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientage">
                                  </div>
                                  <div class="form-group">
                                     <p style="opacity: 0.95;  background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control">Gender
-                                    <input type="radio" id="male" name="gender" value="male">
+                                    <input type="radio" id="patientmale" name="gender" value="male">
                                     <label for="male">Male</label>
-                                    <input type="radio" id="female" name="gender" value="female" >
+                                    <input type="radio" id="patientfemale" name="gender" value="female" >
                                     <label for="female">Female</label><br>
                                     </p>
                                  </div>
                                  <div class="form-group">
-                                  <input type="number" placeholder="Mobile-number" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="number">
+                                  <input type="number" placeholder="Mobile-number" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientnumber">
                                  </div>
                                  <div class="form-group">
-                                    <input type="email" placeholder="Email-address" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="email">
+                                    <input type="email" placeholder="Email-address" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientemail">
                                  </div>
                                  <div class="form-group">
-                                  <input type="text" placeholder="Symptoms" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="symptoms">
+                                  <input type="text" placeholder="Symptoms" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientsymptoms">
                                  </div>
                                  <div class="form-group">
-                                    <input type="text" placeholder="Image" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="image">
+                                    <input type="text" placeholder="Image" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientimage">
                                  </div>
                                  <div class="form-group">
-                                  <input type="password" placeholder="Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="password">
+                                  <input type="password" placeholder="Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientpassword">
                                  </div>
                                  <div class="form-group">
-                                    <input type="password" placeholder="Confirm Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="confirmpassword">
+                                    <input type="password" placeholder="Confirm Password" style="opacity: 0.95; background:white; border-radius: 25px; padding: 20px; width: 320px; height: 15px;" class="form-control" id="patientconfirmpassword">
                                  </div>                                
                                  <div><button type="submit" class="btn btn-default btn-block btn-danger">Submit</button></div>
                                  <br />
