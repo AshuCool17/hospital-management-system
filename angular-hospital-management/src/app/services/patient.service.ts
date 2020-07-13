@@ -9,13 +9,18 @@ import { Patient } from '../hospitalmgnt/patient';
 })
 export class PatientService {
 
-  private baseUrl = "http://localhost:8090/findAllPatients?size=100";
+  private baseUrl = "http://localhost:8090";
   
   constructor(private httpClient : HttpClient) { }
 
   findAllPatients(): Observable<Patient []>{
-    return this.httpClient.get<Patient []>(this.baseUrl)
-    .pipe(retry(1))
+    //return this.httpClient.get<Patient []>(this.baseUrl)
+    return this.httpClient.get<Patient []>(`${this.baseUrl}`+'/findAllPatients?size=100')
+    .pipe(retry(1));
   }
   
+  addPatient(patient: object): Observable<object> {  
+    return this.httpClient.post(`${this.baseUrl}`+'/addPatient/', patient)
+    .pipe(retry(1));  
+  }  
 }
