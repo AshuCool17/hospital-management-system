@@ -23,4 +23,9 @@ export class PatientService {
     return this.httpClient.post(`${this.baseUrl}`+'/addPatient/', patient)
     .pipe(retry(1));  
   }  
+
+  deletePatientById(patientId: number): Observable<object> {  
+    return this.httpClient.post(`${this.baseUrl}`+'/deletePatientById/'+`${patientId}`, patientId)
+    .pipe(retry(1));  
+  } 
 }
