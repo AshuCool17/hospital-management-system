@@ -12,12 +12,6 @@ export class PatientService {
   private baseUrl = "http://localhost:8090";
   
   constructor(private httpClient : HttpClient) { }
-
-  findAllPatients(): Observable<Patient []>{
-    //return this.httpClient.get<Patient []>(this.baseUrl)
-    return this.httpClient.get<Patient []>(`${this.baseUrl}`+'/findAllPatients?size=100')
-    .pipe(retry(1));
-  }
   
   addPatient(patient: object): Observable<object> {  
     return this.httpClient.post(`${this.baseUrl}`+'/addPatient/', patient)
@@ -32,6 +26,12 @@ export class PatientService {
   findPatientById(patientId: number): Observable<object> {  
     return this.httpClient.get(`${this.baseUrl}`+'/findPatientById/'+`${patientId}`)
     .pipe(retry(1));  
-  } 
+  }
+
+  findAllPatients(): Observable<Patient []>{
+    //return this.httpClient.get<Patient []>(this.baseUrl)
+    return this.httpClient.get<Patient []>(`${this.baseUrl}`+'/findAllPatients?size=100')
+    .pipe(retry(1));
+  }
   
 }
