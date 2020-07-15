@@ -33,4 +33,5 @@ export class PatientService {
     return this.httpClient.get(`${this.baseUrl}`+'/findPatientById/'+`${patientId}`)
     .pipe(retry(1));  
   } 
+  
 }
