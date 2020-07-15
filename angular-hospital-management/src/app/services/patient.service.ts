@@ -25,7 +25,12 @@ export class PatientService {
   }  
 
   deletePatientById(patientId: number): Observable<object> {  
-    return this.httpClient.post(`${this.baseUrl}`+'/deletePatientById/'+`${patientId}`, patientId)
+    return this.httpClient.delete(`${this.baseUrl}`+'/deletePatientById/'+`${patientId}`)
+    .pipe(retry(1));  
+  } 
+
+  findPatientById(patientId: number): Observable<object> {  
+    return this.httpClient.get(`${this.baseUrl}`+'/findPatientById/'+`${patientId}`)
     .pipe(retry(1));  
   } 
 }
