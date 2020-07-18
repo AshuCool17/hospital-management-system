@@ -18,6 +18,7 @@ export class PatientService {
     .pipe(retry(1));  
   }  
 
+  /*delete patient by id API*/
   deletePatientById(patientId: number): Observable<object> {  
     return this.httpClient.delete(`${this.baseUrl}`+'/deletePatientById/'+`${patientId}`)
     .pipe(retry(1));  
