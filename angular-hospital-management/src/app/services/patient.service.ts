@@ -13,7 +13,8 @@ export class PatientService {
   
   constructor(private httpClient : HttpClient) { }
   
-  addPatient(patient: object): Observable<object> {  
+  /*add/update patient API*/
+  addorUpdatePatient(patient: object): Observable<object> {  
     return this.httpClient.post(`${this.baseUrl}`+'/addPatient/', patient)
     .pipe(retry(1));  
   }  
