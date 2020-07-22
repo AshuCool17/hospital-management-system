@@ -10,6 +10,7 @@ import { Patient } from 'src/app/hospitalmgnt/patient';
 export class PatientsListComponent implements OnInit {
 
   patients : Patient[];
+  patient : Patient;
   constructor(private patientService : PatientService) { 
   }
 
@@ -26,6 +27,12 @@ export class PatientsListComponent implements OnInit {
   addPatients(){
     this.patientService.addorUpdatePatient(
       data => this.patients = data
+    )
+  }
+
+  findPatient(id){
+    this.patientService.findPatientById(id).subscribe(
+      
     )
   }
 }
