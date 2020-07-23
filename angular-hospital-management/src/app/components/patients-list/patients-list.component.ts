@@ -35,4 +35,10 @@ export class PatientsListComponent implements OnInit {
       
     )
   }
+
+  deletePatientById(id){
+    this.patientService.deletePatientById(id).subscribe(
+      
+    )
+  }
 }
