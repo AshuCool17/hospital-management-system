@@ -28,7 +28,7 @@ export class PatientsListComponent implements OnInit {
   /* add patient */
   addPatients(){
     this.patientService.addorUpdatePatient(
-      data => this.patients = data
+      data => this.patient = data
     )
   }
 
