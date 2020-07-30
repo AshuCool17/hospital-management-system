@@ -7,6 +7,7 @@ export class AuthenticationService {
 
   constructor() { }
 
+  /* authenticating patient credentials */
   authenticate(username, password) {
     if (username === "patient" && password === "patient") {
       sessionStorage.setItem('username', username)
