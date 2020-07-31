@@ -17,6 +17,7 @@ export class AuthenticationService {
     }
   }
 
+  /* check on the user activity */
   isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
     console.log(!(user === null))
