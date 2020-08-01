@@ -24,6 +24,7 @@ export class AuthenticationService {
     return !(user === null)
   }
 
+  /* logout */
   logOut() {
     sessionStorage.removeItem('username')
   }
