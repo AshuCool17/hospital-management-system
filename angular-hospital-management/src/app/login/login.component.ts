@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit{
 
     /* authentication */
     checkLogin() {
+        console.log("Authenticating the login credentials");
         if (this.loginservice.authenticate(this.username, this.password)) {
             this.router.navigate([''])
             this.invalidLogin = false
