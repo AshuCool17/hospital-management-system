@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit{
             this.invalidLogin = false
         } 
         else
+            console.log("Unauthenticated user");
             this.invalidLogin = true
     }
 }
