@@ -13,7 +13,7 @@ export class AuthenticationService {
     if (username === "patient" && password === "patient") {
       //valid user, set the username into the session
       sessionStorage.setItem('username', username)
-      return true;
+      return true; //valid user
     } else {
       //invalid user
       return false;
