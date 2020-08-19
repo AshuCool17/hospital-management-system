@@ -9,7 +9,7 @@ import { AuthenticationService } from '../service/authentication.service';
 export class LoginComponent implements OnInit{
     username = 'patient'
     password = 'patient'
-    invalidLogin = false 
+    invalidLogin = false //boolean field
 
     constructor(private router: Router,
     private loginservice: AuthenticationService) { }
