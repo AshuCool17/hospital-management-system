@@ -7,8 +7,8 @@ import { AuthenticationService } from '../service/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-    username = 'patient'
-    password = 'patient'
+    username = 'patient' //temp username
+    password = 'patient' //temp password
     invalidLogin = false //boolean field
 
     constructor(private router: Router,
