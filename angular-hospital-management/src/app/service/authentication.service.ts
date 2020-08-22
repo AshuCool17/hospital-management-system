@@ -31,6 +31,6 @@ export class AuthenticationService {
   /* logout */
   logOut() {
     console.log("Removing username during logout")
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('username') //clear user from session
   }
 }
