@@ -25,7 +25,7 @@ export class AuthenticationService {
     let user = sessionStorage.getItem('username')
     console.log(!(user === null))
     console.log("Invalidating the user")
-    return !(user === null)
+    return !(user === null) //return true if user present in the session otherwise false
   }
 
   /* logout */
