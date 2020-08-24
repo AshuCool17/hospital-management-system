@@ -15,8 +15,7 @@ export class AuthenticationService {
       sessionStorage.setItem('username', username)
       return true; //valid user
     } else {
-      //invalid user
-      return false;
+      return false; //invalid user
     }
   }
 
