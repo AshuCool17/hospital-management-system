@@ -9,7 +9,7 @@ import { Patient } from '../hospitalmgnt/patient';
 })
 export class PatientService {
 
-  private baseUrl = "http://localhost:8090";
+  private baseUrl = "http://localhost:8090"; //baseUrl should be fixed for the application
   
   constructor(private httpClient : HttpClient) { }
   
