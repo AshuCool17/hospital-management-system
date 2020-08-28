@@ -11,7 +11,9 @@ export class PatientService {
 
   private baseUrl = "http://localhost:8090"; //baseUrl should be fixed for the application
   
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient : HttpClient) {
+    //httpClient used to access web services
+   }
   
   /*add/update patient API*/
   addorUpdatePatient(patient: object): Observable<object> {  
