@@ -16,6 +16,7 @@ export class AuthenticationService {
       console.log('username ' +username);
       return true; //valid user
     } else {
+      console.log('returning false ' +username);
       return false; //invalid user
     }
   }
