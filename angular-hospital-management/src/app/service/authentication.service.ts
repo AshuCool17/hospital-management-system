@@ -14,9 +14,10 @@ export class AuthenticationService {
       //valid user, set the username into the session
       sessionStorage.setItem('username', username)
       console.log('username ' +username);
+      console.log('returning true');
       return true; //valid user
     } else {
-      console.log('returning false' +false);
+      console.log('returning false');
       return false; //invalid user
     }
   }
