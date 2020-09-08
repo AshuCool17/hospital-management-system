@@ -12,6 +12,7 @@ export class AuthenticationService {
     console.log("Authenticating patient credentials")
     if (username === "patient" && password === "patient") {
       //valid user, set the username into the session
+      console.log('Valid user');
       sessionStorage.setItem('username', username)
       console.log('username ' +username);
       console.log('returning true');
