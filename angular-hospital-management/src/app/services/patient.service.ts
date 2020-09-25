@@ -17,6 +17,7 @@ export class PatientService {
   
   /*add/update patient API*/
   addorUpdatePatient(patient: object): Observable<object> {  
+    
     console.log("Invoking addorUpdatePatient");
     return this.httpClient.post(`${this.baseUrl}`+'/addPatient/', patient)
     .pipe(retry(1));  
