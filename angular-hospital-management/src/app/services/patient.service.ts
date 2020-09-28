@@ -25,6 +25,7 @@ export class PatientService {
 
   /*delete patient by id API*/
   deletePatientById(patientId: number): Observable<object> {  
+    
     console.log("Invoking deletePatientById");
     return this.httpClient.delete(`${this.baseUrl}`+'/deletePatientById/'+`${patientId}`)
     .pipe(retry(1));  
