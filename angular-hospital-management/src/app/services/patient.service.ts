@@ -33,6 +33,7 @@ export class PatientService {
 
   /*find patient by id API*/
   findPatientById(patientId: number): Observable<object> {  
+    
     console.log("Invoking findPatientById");
     return this.httpClient.get(`${this.baseUrl}`+'/findPatientById/'+`${patientId}`)
     .pipe(retry(1));  
