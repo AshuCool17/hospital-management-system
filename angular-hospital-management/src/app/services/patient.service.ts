@@ -42,6 +42,7 @@ export class PatientService {
   /*find all patients API*/
   findAllPatients(): Observable<Patient []>{
     //return this.httpClient.get<Patient []>(this.baseUrl)
+    
     console.log("Invoking findAllPatients");
     return this.httpClient.get<Patient []>(`${this.baseUrl}`+'/findAllPatients?size=100')
     .pipe(retry(1));
