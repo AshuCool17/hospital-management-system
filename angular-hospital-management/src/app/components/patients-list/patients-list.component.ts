@@ -15,31 +15,32 @@ export class PatientsListComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.listOfPatients();
   }
 
   /*find all patients*/
-  listOfPatients(){
+  listOfPatients() {
     this.patientService.findAllPatients().subscribe(
       data => this.patients = data
     )
   }
 
   /* add patient */
-  addPatients(){
+  addPatients() {
     this.patientService.addorUpdatePatient(
       data => this.patient = data
     )
   }
 
   /*find patient by id*/
-  findPatient(id){
+  findPatient(id) {
     this.patientService.findPatientById(id).subscribe(
     )
   }
 
   /* delete patient by id */
-  deletePatientById(id){
+  deletePatientById(id) {
     this.patientService.deletePatientById(id).subscribe(      
     )
   }

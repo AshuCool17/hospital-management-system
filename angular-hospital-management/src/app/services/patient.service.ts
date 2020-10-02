@@ -20,7 +20,7 @@ export class PatientService {
     
     console.log("Invoking addorUpdatePatient");
     return this.httpClient.post(`${this.baseUrl}`+'/addPatient/', patient)
-    .pipe(retry(1));  
+    .pipe(retry(1));
   }  
 
   /*delete patient by id API*/
@@ -28,7 +28,7 @@ export class PatientService {
     
     console.log("Invoking deletePatientById");
     return this.httpClient.delete(`${this.baseUrl}`+'/deletePatientById/'+`${patientId}`)
-    .pipe(retry(1));  
+    .pipe(retry(1));
   } 
 
   /*find patient by id API*/
