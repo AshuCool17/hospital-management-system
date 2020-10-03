@@ -21,6 +21,7 @@ export class PatientsListComponent implements OnInit {
 
   /*find all patients*/
   listOfPatients() {
+    
     this.patientService.findAllPatients().subscribe(
       data => this.patients = data
     )
