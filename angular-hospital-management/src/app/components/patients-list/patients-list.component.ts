@@ -37,6 +37,7 @@ export class PatientsListComponent implements OnInit {
 
   /*find patient by id*/
   findPatient(id) {
+  
     this.patientService.findPatientById(id).subscribe(
     )
   }
