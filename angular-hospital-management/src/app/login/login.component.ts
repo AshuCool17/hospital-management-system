@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit{
             console.log("Authentic user");
             this.router.navigate(['']) //navigate to the home page if the credentials are authentic
             this.invalidLogin = false //valid user
-        } 
-        else{
+        } else{
             
             console.log("Unauthenticated user");
             this.invalidLogin = true //invalid user
