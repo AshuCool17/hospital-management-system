@@ -23,7 +23,7 @@ export class AuthGuardService implements CanActivate{
     } else {
     
       console.log('Unathenticated user');
-      return false; //else if unauthenticated user, return false
+      return false; //if unauthenticated user, return false
     }
   }
 }
