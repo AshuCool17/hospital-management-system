@@ -15,7 +15,6 @@ export class PatientsListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.listOfPatients();
   }
 
@@ -37,14 +36,12 @@ export class PatientsListComponent implements OnInit {
 
   /*find patient by id*/
   findPatient(id) {
-  
     this.patientService.findPatientById(id).subscribe(
     )
   }
 
   /* delete patient by id */
   deletePatientById(id) {
-    
     this.patientService.deletePatientById(id).subscribe(      
     )
   }
