@@ -30,7 +30,6 @@ export class AuthenticationService {
 
   /* check on the user activity */
   isUserLoggedIn() {
-
     let user = sessionStorage.getItem('username') //retrieve user from the session
     console.log("Invalidating the user")
     return !(user === null) //return true if user present in the session otherwise false
