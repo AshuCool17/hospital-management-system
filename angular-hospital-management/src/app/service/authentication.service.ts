@@ -9,23 +9,18 @@ export class AuthenticationService {
 
   /* authenticating patient credentials */
   authenticate(username, password) {
-
     console.log("Authenticating patient credentials")
     if (username === "patient" && password === "patient") {
-
       //valid user, set the username into the session
       console.log('Valid user');
       sessionStorage.setItem('username', username) // add username to session
       console.log('username ' +username);
       console.log('returning true');
       return true; //valid user
-
     } else {
-
       console.log('Invalid user');
       console.log('returning false');
       return false; //invalid user
-
     }
   }
 
