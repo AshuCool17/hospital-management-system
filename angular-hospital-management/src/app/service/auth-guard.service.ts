@@ -21,12 +21,10 @@ export class AuthGuardService implements CanActivate{
       this.router.navigate(['login']); //navigating to login page
       console.log('Navigate to login page');
       return true; //if authenticated user, return true
-      
     } else {
       
       console.log('Unathenticated user');
       return false; //if unauthenticated user, return false
-
     }
   }
 }
