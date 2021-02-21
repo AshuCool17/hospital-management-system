@@ -9,9 +9,11 @@ export class AuthGuardService implements CanActivate{
 
   constructor(private router: Router,
     private authService: AuthenticationService) {
+
     }
     /* user authentication */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {    
+
     console.log('Entered canActivate method');
     if (this.authService.isUserLoggedIn()){ //if logged-in user
       console.log('Authenticated user');
@@ -22,5 +24,6 @@ export class AuthGuardService implements CanActivate{
       console.log('Unathenticated user');
       return false; //if unauthenticated user, return false
     }
+    
   }
 }
