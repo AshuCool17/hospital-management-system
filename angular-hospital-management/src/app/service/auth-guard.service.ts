@@ -13,6 +13,7 @@ export class AuthGuardService implements CanActivate{
     }
     /* user authentication */
     
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {    
 
     console.log('Entered canActivate method');
@@ -26,4 +27,6 @@ export class AuthGuardService implements CanActivate{
       return false; //if unauthenticated user, return false
     }
   }
+  
+
 }
