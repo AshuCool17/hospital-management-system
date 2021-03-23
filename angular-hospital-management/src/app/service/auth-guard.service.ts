@@ -11,7 +11,7 @@ export class AuthGuardService implements CanActivate{
     private authService: AuthenticationService) {
     }
     /* user authentication */
-        
+    
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {    
 
